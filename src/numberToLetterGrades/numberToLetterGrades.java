@@ -30,7 +30,7 @@ public class numberToLetterGrades {
 
     }
 
-    private static String convert(int number) {
+    public static String convert(int number) {
         if(number > 0 && number < 60) {
             return "F";
         }
@@ -49,3 +49,8 @@ public class numberToLetterGrades {
         return "";
     }
 }
+
+
+
+
+
