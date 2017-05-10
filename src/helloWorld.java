@@ -7,6 +7,11 @@ public class helloWorld {
         int myFavoriteNumber = 5;
 
         System.out.println(myFavoriteNumber);
+        
+        pizzaOrder();
 
+    }
+
+    private static void pizzaOrder() {
     }
 }
