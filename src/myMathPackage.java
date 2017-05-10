@@ -6,7 +6,7 @@ import math.*;
 
 import java.io.PrintStream;
 
-public class Main {
+public class myMathPackage {
     public static void main(String[] args) {
 
         PrintStream output = System.out;
@@ -14,7 +14,7 @@ public class Main {
         double grades[] = {98, 45, 15, 99, 78};
         output.println("Average of grades is: " + math.averageOfArray.average(grades));
         output.println("Lowest grade is: " + math.minOfArray.min(grades));
-
+        output.println("Greater grade is: " + math.maxOfArray.max(grades));
 
     }
 

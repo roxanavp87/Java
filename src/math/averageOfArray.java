@@ -12,12 +12,12 @@ public class averageOfArray {
         System.out.println(average(ints));
     }
 
-    public static double average(double grades[]) {
+    public static double average(double array[]) {
         double result = 0;
-        for(int i=0; i<grades.length; i++) {
-            result += grades[i];
+        for(int i=0; i<array.length; i++) {
+            result += array[i];
         }
-        return result/grades.length;
+        return result/array.length;
 
     }
 

@@ -1,5 +1,3 @@
-package numberToLetterGrades;
-
 import java.io.PrintStream;
 import java.util.Scanner;
 
@@ -30,7 +28,7 @@ public class numberToLetterGrades {
 
     }
 
-    public static String convert(int number) {
+    private static String convert(int number) {
         if(number > 0 && number < 60) {
             return "F";
         }

@@ -1,5 +1,3 @@
-package fizzbuzz;
-
 import java.io.PrintStream;
 import java.util.Scanner;
 

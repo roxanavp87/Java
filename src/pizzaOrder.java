@@ -1,12 +1,10 @@
-package pizzaOrder;
-
 import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
  * Created by roxana on 5/8/17.
  */
-public class pizza {
+public class pizzaOrder {
     public static void main(String[] args) {
         int size;
         float $size[] = {5.99f, 9.99f, 14.99f};
@@ -19,11 +17,11 @@ public class pizza {
         PrintStream output = System.out;
 
 
-        //Asking for pizza's size
+        //Asking for pizzaOrder's size
         output.println("Choose size:\n" + "(1) small\n" + "(2) medium\n" + "(3) large\n");
         cost = $size[input.nextInt()-1];
 
-        //Asking for pizza's type
+        //Asking for pizzaOrder's type
         output.println("Choose type:\n" + "(1) cheese\n" + "(2) pepperoni\n" + "(3) three meats\n");
         cost += $type[input.nextInt()-1];
 
