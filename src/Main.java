@@ -11,7 +11,7 @@ public class Main {
 
         PrintStream output = System.out;
 
-        double grades[] = {3.0, 4.5, 0.3, 10.0, 0.2};
+        double grades[] = {98, 45, 15, 99, 78};
         output.println("Average of grades is: " + math.averageOfArray.average(grades));
         output.println("Lowest grade is: " + math.minOfArray.min(grades));
 
