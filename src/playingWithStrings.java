@@ -38,7 +38,7 @@ public class playingWithStrings {
                 answer = "Sure";
             } else if (question.trim().equals("")) {
                 answer = "Fine. Be that way";
-            } else if (question.equals(question.toUpperCase())) {
+            } else if (question.equals(question.toUpperCase()) && !question.equals(question.toLowerCase())) {
                 answer = "Whoa, chill out!";
             } else {
                 answer = "Whatever";
