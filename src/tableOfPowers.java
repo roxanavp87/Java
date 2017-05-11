@@ -17,7 +17,7 @@ public class tableOfPowers {
             output.println("number | squared | cubed\n" +
                     "------ | ------- | -----");
             for (int i = 1; i <= number; i++) {
-                output.printf("%-7d| %-8d| %d\n", i, i*i, i*i*i);
+                output.printf("%-7d| %-8d| %d\n", i, (int)Math.pow(i,2), (int)Math.pow(i,3));
             }
 
             output.println("Press Y if you want to try with other number, or N if you want to finish...");
