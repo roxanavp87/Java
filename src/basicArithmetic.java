@@ -11,7 +11,7 @@ public class basicArithmetic {
         PrintStream output = System.out;
         String userInput;
 
-//        output.println(math.multiplication.multWithRecursion(1,3));
+//        output.println(math.arithmetic.multiplication(1,3));
 
         output.println("Type exit to finish.");
 
@@ -27,6 +27,8 @@ public class basicArithmetic {
                 output.println(division(numbers(userInput, "/")[0], numbers(userInput, "/")[1]));
             } else if (userInput.indexOf("%") != -1) {
                 output.println(module(numbers(userInput, "%")[0], numbers(userInput, "%")[1]));
+            } else if (userInput.indexOf("!") != -1) {
+                output.println(math.arithmetic.factorial((int)numbers(userInput, "!")[0]));
             } else {
                 output.println("Operation not valid");
             }
@@ -57,8 +59,10 @@ public class basicArithmetic {
 
     public static double[] numbers(String userInput, String operation) {
         double numbers[] = new double[2];
-        numbers[0] = Double.valueOf((userInput.substring(0,userInput.indexOf(operation))).trim());
-        numbers[1] = Double.valueOf((userInput.substring(userInput.indexOf(operation)+1,userInput.length())).trim());
+        numbers[0] = Double.valueOf((userInput.substring(0, userInput.indexOf(operation))).trim());
+        if ( operation != "!") {
+            numbers[1] = Double.valueOf((userInput.substring(userInput.indexOf(operation) + 1, userInput.length())).trim());
+        }
         return numbers;
     }
 }

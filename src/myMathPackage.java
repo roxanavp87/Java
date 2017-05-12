@@ -13,9 +13,9 @@ public class myMathPackage {
         PrintStream output = System.out;
 
         double grades[] = {98, 45, 15, 99, 78};
-        output.println("Average of grades is: " + math.averageOfArray.average(grades));
-        output.println("Lowest grade is: " + math.minOfArray.min(grades));
-        output.println("Greater grade is: " + math.maxOfArray.max(grades));
+        output.println("Average of grades is: " + math.arrays.average(grades));
+        output.println("Lowest grade is: " + math.arrays.min(grades));
+        output.println("Greater grade is: " + math.arrays.max(grades));
 
         Scanner input = new Scanner(System.in);
 
