@@ -10,9 +10,11 @@ public class basicArithmetic {
         Scanner input = new Scanner(System.in);
         PrintStream output = System.out;
         String userInput;
-//        String operations[] = {"+", "-", "*", "/", "%"};
+
+//        output.println(math.multiplication.multWithRecursion(1,3));
 
         output.println("Type exit to finish.");
+
         do {
             userInput = input.nextLine();
             if (userInput.indexOf("+") != -1) {
