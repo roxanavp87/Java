@@ -32,14 +32,15 @@ public class Testing {
 //        System.out.println(person2.getName());
 
         Input in = new Input();
-        System.out.println("Do you want to continue?");
         System.out.println(in.yesNo());
+//
+//        int userInput = in.getInt(5, 10);
+//        System.out.println(userInput);
+//
+//        double userIn = in.getDouble(5.0, 100.23);
+//        System.out.println(userIn);
 
-        int userInput = in.getInt(5, 10);
-        System.out.println(userInput);
-
-        double userIn = in.getDouble(5.0, 100.23);
-        System.out.println(userIn);
+        System.out.println(in.getString("codeup"));
 
 
     }

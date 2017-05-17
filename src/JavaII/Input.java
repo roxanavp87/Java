@@ -13,7 +13,12 @@ public class Input {
     }
 
     public String getString() {
-        return this.scanner.nextLine();
+        return this.scanner.next();
+    }
+
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return this.scanner.next();
     }
 
     public int getInt() {
@@ -25,7 +30,9 @@ public class Input {
     }
 
     public boolean yesNo() {
-        String str = this.getString();
+        String str;
+        System.out.println("Do you want to continue?");
+        str = this.getString();
         return str.equalsIgnoreCase("y") ||
                 str.equalsIgnoreCase("yes");
     }
