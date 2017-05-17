@@ -1,5 +1,6 @@
 package JavaII;
 
+import java.io.PrintStream;
 import java.util.Scanner;
 
 /**
@@ -7,17 +8,23 @@ import java.util.Scanner;
  */
 public class Input {
     private Scanner scanner;
+    private PrintStream output;
 
     public Input() {
         this.scanner = new Scanner(System.in);
+        this.output = System.out;
     }
 
     public String getString() {
         return this.scanner.next();
     }
 
+    public String getStringLn() {
+        return this.scanner.nextLine();
+    }
+
     public String getString(String prompt) {
-        System.out.println(prompt);
+        output.println(prompt);
         return this.scanner.next();
     }
 
@@ -29,9 +36,10 @@ public class Input {
         return this.scanner.nextDouble();
     }
 
+    // static coupling
     public boolean yesNo() {
         String str;
-        System.out.println("Do you want to continue?");
+        output.println("Do you want to continue?");
         str = this.getString();
         return str.equalsIgnoreCase("y") ||
                 str.equalsIgnoreCase("yes");
@@ -40,7 +48,7 @@ public class Input {
     public int getInt(int min, int max) {
         int userInput;
         do {
-            System.out.println("Enter an integer between " + min + " and " + max);
+            output.println("Enter an integer between " + min + " and " + max);
             userInput = this.getInt();
 
         } while (userInput < min || userInput > max);
@@ -51,7 +59,7 @@ public class Input {
     public double getDouble(double min, double max) {
         double userInput;
         do {
-            System.out.println("Enter a double between " + min + " and " + max);
+            output.println("Enter a double between " + min + " and " + max);
             userInput = this.getDouble();
 
         } while (userInput < min || userInput > max);
