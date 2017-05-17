@@ -13,6 +13,42 @@ public class Input {
     }
 
     public String getString() {
+        return this.scanner.nextLine();
+    }
 
+    public int getInt() {
+        return this.scanner.nextInt();
+    }
+
+    public double getDouble() {
+        return this.scanner.nextDouble();
+    }
+
+    public boolean yesNo() {
+        String str = this.getString();
+        return str.equalsIgnoreCase("y") ||
+                str.equalsIgnoreCase("yes");
+    }
+
+    public int getInt(int min, int max) {
+        int userInput;
+        do {
+            System.out.println("Enter an integer between " + min + " and " + max);
+            userInput = this.getInt();
+
+        } while (userInput < min || userInput > max);
+
+        return userInput;
+    }
+
+    public double getDouble(double min, double max) {
+        double userInput;
+        do {
+            System.out.println("Enter a double between " + min + " and " + max);
+            userInput = this.getDouble();
+
+        } while (userInput < min || userInput > max);
+
+        return userInput;
     }
 }
