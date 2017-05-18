@@ -11,11 +11,14 @@ import java.util.Scanner;
 public class Movie {
     private String name;
     private String category;
-    private PrintStream out = System.out;
+    private PrintStream out;
+    private Scanner input;
 
     public Movie(String name, String category) {
         this.name =name;
         this.category = category;
+        this.out = System.out;
+        this.input = new Scanner(System.in);
     }
 
     public String getCategory() {
@@ -25,6 +28,14 @@ public class Movie {
     public void printMovie() {
         out.println(this.name + " -- " + this.category);
     }
+
+    public Movie addMovie() {
+        out.println("Enter name:");
+        String name = input.nextLine();
+        System.out.println("Enter category:");
+        String category = input.nextLine();
+        return new Movie(name, category);
+    }
 }
 
 class MoviesApplication {
@@ -32,6 +43,7 @@ class MoviesApplication {
         Scanner input = new Scanner(System.in);
         int userInput;
         boolean exit = false;
+        Movie movie = new Movie("", "");
         String[] categories = {"animated", "drama", "horror", "scifi"};
         String menu = "\n\nWhat would you like to do?\n" +
                 "\n" +
@@ -61,12 +73,7 @@ class MoviesApplication {
                         movies.get(i).printMovie();
                     }
                 } else if(userInput == 6) {
-                    System.out.println("Enter name:");
-                    input.nextLine();
-                    String name = input.nextLine();
-                    System.out.println("Enter category:");
-                    String category = input.nextLine();
-                    movies.add(new Movie(name, category));
+                    movies.add(movie.addMovie());
                     break;
                 } else {
                     System.out.println("Choose a valid option");
