@@ -5,14 +5,14 @@ package JavaII;
  */
 public class Testing {
     public static void main(String[] args) {
-        Person p1 = new Person("Rox");
-
-        p1.sayHello();
-
-        // change name
-        p1.setName("Ana");
-
-        p1.sayHello();
+//        Person p1 = new Person("Rox");
+//
+//        p1.sayHello();
+//
+//        // change name
+//        p1.setName("Ana");
+//
+//        p1.sayHello();
 
 //        Person person1 = new Person("John");
 //        Person person2 = new Person("John");
@@ -32,7 +32,8 @@ public class Testing {
 //        System.out.println(person2.getName());
 
         Input in = new Input();
-        System.out.println(in.yesNo());
+
+//        System.out.println(in.yesNo());
 //
 //        int userInput = in.getInt(5, 10);
 //        System.out.println(userInput);
@@ -40,7 +41,7 @@ public class Testing {
 //        double userIn = in.getDouble(5.0, 100.23);
 //        System.out.println(userIn);
 
-        System.out.println(in.getString("codeup"));
+//        System.out.println(in.getString("codeup"));
 
 
     }
