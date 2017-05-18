@@ -22,6 +22,7 @@ public class conversions {
         return hex.reverse();
     }
 
+
     public static int hextoDec(String hex) {
         /*
          * 1. 7DE = (7 * 16^2) + (13 * 16^1) + (14 * 16^0)
@@ -86,7 +87,16 @@ public class conversions {
          */
 
         return decToHex(binToDec(bin));
+    }
 
+
+    public static StringBuilder hexToBin(String hex) {
+        /*
+         * convert hexadecimal to decimal
+         * convert decimal to binary
+         */
+
+        return decToBin(hextoDec(hex));
     }
 }
 
@@ -112,7 +122,12 @@ class Testing {
 //        System.out.println("Testing: 25, Output: " + conversions.decToBin(25) + ", Expected: 11001");
 //        System.out.println("Testing: 255, Output: " + conversions.decToBin(255) + ", Expected: 11111111");
 
-        //Testing binToHex
-        System.out.println("Testing: 11101100101001, Output: " + conversions.binToHex("11101100101001") + ", Expected: 3b29");
+//        //Testing binToHex
+//        System.out.println("Testing: 11101100101001, Output: " + conversions.binToHex("11101100101001") + ", Expected: 3b29");
+//        System.out.println("Testing: 1000100110101011, Output: " + conversions.binToHex("1000100110101011") + ", Expected: 89ab");
+
+        //Testing hexToBin
+        System.out.println("Testing: 3b29, Output: " + conversions.hexToBin("3b29") + ", Expected: 11101100101001");
+        System.out.println("Testing: 89ab, Output: " + conversions.hexToBin("89ab") + ", Expected: 1000100110101011");
     }
 }
