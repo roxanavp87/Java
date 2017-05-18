@@ -9,13 +9,17 @@ import java.util.Scanner;
  * Created by roxana on 5/18/17.
  */
 public class Movie {
-    public String name;
-    public String category;
+    private String name;
+    private String category;
     private PrintStream out = System.out;
 
     public Movie(String name, String category) {
         this.name =name;
         this.category = category;
+    }
+
+    public String getCategory() {
+        return this.category;
     }
 
     public void printMovie() {
@@ -28,6 +32,7 @@ class MoviesApplication {
         Scanner input = new Scanner(System.in);
         int userInput;
         boolean exit = false;
+        String[] categories = {"animated", "drama", "horror", "scifi"};
         String menu = "\n\nWhat would you like to do?\n" +
                 "\n" +
                 "0 - exit\n" +
@@ -49,8 +54,13 @@ class MoviesApplication {
                 if (userInput == 0) {
                     exit = true;
                     break;
-                }
-                if(userInput == 6) {
+                } else if(userInput == 1) {
+                    movies.get(i).printMovie();
+                } else if(userInput >=2 && userInput <= 5) {
+                    if(movies.get(i).getCategory().equals(categories[userInput-2])) {
+                        movies.get(i).printMovie();
+                    }
+                } else if(userInput == 6) {
                     System.out.println("Enter name:");
                     input.nextLine();
                     String name = input.nextLine();
@@ -58,33 +68,9 @@ class MoviesApplication {
                     String category = input.nextLine();
                     movies.add(new Movie(name, category));
                     break;
-                }
-                switch (userInput) {
-                    case 1:
-                        movies.get(i).printMovie();
-                        break;
-                    case 2:
-                        if (movies.get(i).category.equals("animated")) {
-                            movies.get(i).printMovie();
-                        }
-                        break;
-                    case 3:
-                        if (movies.get(i).category.equals("drama")) {
-                            movies.get(i).printMovie();
-                        }
-                        break;
-                    case 4:
-                        if (movies.get(i).category.equals("horror")) {
-                            movies.get(i).printMovie();
-                        }
-                        break;
-                    case 5:
-                        if (movies.get(i).category.equals("scifi")) {
-                            movies.get(i).printMovie();
-                        }
-                        break;
-                    default:
-
+                } else {
+                    System.out.println("Choose a valid option");
+                    break;
                 }
             }
         } while (!exit);
