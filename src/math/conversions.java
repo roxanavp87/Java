@@ -4,15 +4,26 @@ package math;
  * Created by roxana on 5/18/17.
  */
 public class conversions {
-    public static StringBuilder decToHex(int numb) {
-        /*
-         * 1. Divide the decimal number by 16.   Treat the division as an integer division.
-         * 2. Write down the remainder (in hexadecimal).
-         * 3. Divide the result again by 16.  Treat the division as an integer division.
-         * 4. Repeat step 2 and 3 until result is 0.
-         * 5. The hex value is the digit sequence of the remainders from the last to first.
-         */
+    /*
+     *  Repeated division and remainder algorithm can convert decimal to binary, octal, or hexadecimal.
+     * 1. Divide the decimal number by the desired target radix (2, 8, or 16).
+     * 2. Append the remainder as the next most significant digit.
+     * 3. Repeat until the decimal number has reached zero.
+     */
 
+
+    public static StringBuilder decToBin(int numb) {
+        StringBuilder bin = new StringBuilder("");
+        do {
+            bin.append(numb%2);
+            numb = numb/2;
+        } while ( numb != 0);
+
+        return bin.reverse();
+    }
+
+
+    public static StringBuilder decToHex(int numb) {
         StringBuilder hex = new StringBuilder("");
         do {
             hex.append(Integer.toHexString(numb%16));
@@ -20,6 +31,17 @@ public class conversions {
         } while ( numb != 0);
 
         return hex.reverse();
+    }
+
+
+    public static StringBuilder decToOct(int numb) {
+        StringBuilder oct = new StringBuilder("");
+        do {
+            oct.append(numb%8);
+            numb = numb/8;
+        } while ( numb != 0);
+
+        return oct.reverse();
     }
 
 
@@ -42,30 +64,11 @@ public class conversions {
     }
 
 
-    public static StringBuilder decToBin(int numb) {
-        /*
-         * 1. Divide the decimal number by 2.   Treat the division as an integer division.
-         * 2. Write down the remainder.
-         * 3. Divide the result again by 2.  Treat the division as an integer division.
-         * 4. Repeat step 2 and 3 until result is 0.
-         * 5. The binary value is the digit sequence of the remainders from the last to first.
-         */
-
-        StringBuilder bin = new StringBuilder("");
-        do {
-            bin.append(numb%2);
-            numb = numb/2;
-        } while ( numb != 0);
-
-        return bin.reverse();
-    }
-
-
     public static int binToDec(String bin) {
         /*
          * 1. 101 = (1 * 2^2) + (0 * 2^1) + (1 * 2^0)
          * 2. 101 = (1 * 4) + (0 * 2) + (1 * 1)
-         * 3. 101 = 4 + 0 + 1 = 5 (in decimal number)
+         * 3. 101 = 5 (in decimal number)
          */
 
         int dec = 0;
@@ -75,6 +78,19 @@ public class conversions {
         char[] digits = binSB.toString().toCharArray();
         for (int i=0; i<digits.length; i++) {
             dec += (int)Integer.parseInt(Character.toString(digits[i]),2) * Math.pow(2, i);
+        }
+        return dec;
+    }
+
+
+    public static int octToDec(String oct) {
+        int dec = 0;
+        StringBuilder octSB = new StringBuilder(oct);
+        octSB = octSB.reverse();
+
+        char[] digits = octSB.toString().toCharArray();
+        for (int i=0; i<digits.length; i++) {
+            dec += (int)Integer.parseInt(Character.toString(digits[i]),8) * Math.pow(8, i);
         }
         return dec;
     }
@@ -126,8 +142,15 @@ class Testing {
 //        System.out.println("Testing: 11101100101001, Output: " + conversions.binToHex("11101100101001") + ", Expected: 3b29");
 //        System.out.println("Testing: 1000100110101011, Output: " + conversions.binToHex("1000100110101011") + ", Expected: 89ab");
 
-        //Testing hexToBin
-        System.out.println("Testing: 3b29, Output: " + conversions.hexToBin("3b29") + ", Expected: 11101100101001");
-        System.out.println("Testing: 89ab, Output: " + conversions.hexToBin("89ab") + ", Expected: 1000100110101011");
+//        //Testing hexToBin
+//        System.out.println("Testing: 3b29, Output: " + conversions.hexToBin("3b29") + ", Expected: 11101100101001");
+//        System.out.println("Testing: 89ab, Output: " + conversions.hexToBin("89ab") + ", Expected: 1000100110101011");
+
+//        //Testing decToOct
+//        System.out.println("Testing: 1792, Output: " + conversions.decToOct(1792) + ", Expected: 3400");
+
+        //Testing octToDec
+        System.out.println("Testing: 3400, Output: " + conversions.octToDec("3400") + ", Expected: 1792");
+        System.out.println("Testing: 377, Output: " + conversions.octToDec("377") + ", Expected: 255");
     }
 }
