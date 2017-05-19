@@ -57,8 +57,6 @@ public class nextHigherIntWithSameDigits {
  class TestingNextHigherIntWithSameDigits {
      public static void main(String[] args) {
          nextHigherIntWithSameDigits test = new nextHigherIntWithSameDigits();
-
-         System.out.println("Testing: 641, Output: " + test.getHigherInt(641) + ", Expected: -1");
          System.out.println("Testing: 230, Output: " + test.getHigherInt(230) + ", Expected: 302");
          System.out.println("Testing: 34722641, Output: " + test.getHigherInt(34722641) + ", Expected: 34724126");
          System.out.println("Testing: 1234675, Output: " + test.getHigherInt(1234675) + ", Expected: 1234756");
