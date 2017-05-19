@@ -5,25 +5,34 @@ import com.sun.org.apache.regexp.internal.RE;
 /**
  * Created by roxana on 5/19/17.
  */
-public class Rectangle {
-    private double length;
-    private double width;
+public class Rectangle extends Quadralateral {
 
     public Rectangle(double length, double width) {
-        this.length = length;
-        this.width = width;
+        super(length, width);
     }
 
-    public double getArea() {
-        return this.width * this.length;
-    }
-
+    @Override
     public double getPerimeter() {
-        return 2*this.width + 2*this.length;
+        return 2*this.getLength() + 2*this.getWidth();
+    }
+
+    @Override
+    public double getArea() {
+        return this.length * this.width;
+    }
+
+    @Override
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    @Override
+    public void setWidth(double width) {
+        this.width = width;
     }
 }
 
-class Square extends Rectangle {
+class Square extends Quadralateral {
     private double side;
 
     public Square(double side) {
@@ -31,25 +40,40 @@ class Square extends Rectangle {
         this.side = side;
     }
 
+    @Override
     public double getPerimeter() {
         return 4*this.side;
     }
 
+    @Override
     public double getArea() {
         return this.side * this.side;
     }
+
+    @Override
+    public void setLength(double length) {
+        this.length = length;
+    }
+
+    @Override
+    public void setWidth(double width) {
+        this.width = width;
+    }
+
+
 }
 
 class ShapesTest {
     public static void main(String[] args) {
-        Rectangle box1 = new Rectangle(5,4);
-        Rectangle box2 = new Square(5);
+        Measurable myShape = new Rectangle(5,4);
 
-        System.out.println("Area for box1 is: " + box1.getArea());
-        System.out.println("Perimeter for box1 is: " + box1.getPerimeter());
+        System.out.println("Area for box1 is: " + myShape.getArea());
+        System.out.println("Perimeter for box1 is: " + myShape.getPerimeter());
 
-        System.out.println("Area for box2 is: " + box2.getArea());
-        System.out.println("Perimeter for box2 is: " + box2.getPerimeter());
+        myShape = new Square(5);
+
+        System.out.println("Area for box2 is: " + myShape.getArea());
+        System.out.println("Perimeter for box2 is: " + myShape.getPerimeter());
     }
 
 }
