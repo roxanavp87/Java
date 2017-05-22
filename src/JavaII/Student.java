@@ -1,8 +1,6 @@
 package JavaII;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 import java.util.stream.IntStream;
 
 /**
@@ -10,11 +8,11 @@ import java.util.stream.IntStream;
  */
 public class Student {
     private String name;
-    private List<Integer> grades;
+    private IntStream grades;
 
     public Student(String name) {
         this.name = name;
-        this.grades = new ArrayList<Integer>();
+        this.grades = IntStream.empty();
     }
 
     public String getName() {
@@ -22,23 +20,18 @@ public class Student {
     }
 
     public void addGrade(int grade) {
-        this.grades.add(grade);
+        this.grades = IntStream.concat(grades, IntStream.of(grade));
     }
 
     public double getGradeAverage() {
-        int sum = 0;
-        for(Integer grade : grades) {
-            sum += grade;
-        }
-
-        return sum/(double)grades.size();
+        return this.grades.average().getAsDouble();
     }
 }
 
 
 class TestingStudent {
     public static void main(String[] args) {
-        Student student = new Student("Rox");
+        Student student;
         Scanner input = new Scanner(System.in);
         int grade;
 
@@ -54,6 +47,5 @@ class TestingStudent {
         }
 
         System.out.println("Average: " + student.getGradeAverage());
-
     }
 }
