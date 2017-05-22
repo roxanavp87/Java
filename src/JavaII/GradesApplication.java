@@ -17,8 +17,8 @@ public class GradesApplication {
         return students;
     }
 
-    public void printMap() {
-        students.forEach((k, v) -> System.out.println("Git username: "+k+" Grades average: "+v.getGradeAverage()));
+    public void printKey() {
+        students.forEach((k, v) -> System.out.print("| "+ k + "| "));
     }
 }
 
@@ -40,7 +40,9 @@ class TestingGradesapplication {
         grades.addStudents("tuesdayS", student2);
 
 
-        grades.printMap();
+        System.out.println("Welcome!");
+        System.out.println("Here are the github usernames of our students:");
+        grades.printKey();
 
         
     }
