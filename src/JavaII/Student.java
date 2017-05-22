@@ -2,6 +2,7 @@ package JavaII;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.IntStream;
 
 /**
@@ -31,5 +32,28 @@ public class Student {
         }
 
         return sum/(double)grades.size();
+    }
+}
+
+
+class TestingStudent {
+    public static void main(String[] args) {
+        Student student = new Student("Rox");
+        Scanner input = new Scanner(System.in);
+        int grade;
+
+        System.out.println("Enter student's name");
+        student = new Student(input.nextLine());
+
+        System.out.println("Enter grades (type -1 to finish)");
+
+        grade = input.nextInt();
+        while (grade != -1) {
+            student.addGrade(grade);
+            grade = input.nextInt();
+        }
+
+        System.out.println("Average: " + student.getGradeAverage());
+
     }
 }
