@@ -26,6 +26,7 @@ public class GradesApplication {
         if(students.get(key) != null) {
             System.out.println("Name: " + students.get(key).getName() +
                     "\nCurrent Average: " + students.get(key).getGradeAverage());
+            students.get(key).printGrades();
         } else {
             System.out.println("Sorry, no student found with the gihub username of " + key);
         }

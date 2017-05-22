@@ -8,11 +8,11 @@ import java.util.stream.IntStream;
  */
 public class Student {
     private String name;
-    private IntStream grades;
+    private List<Integer> grades;
 
     public Student(String name) {
         this.name = name;
-        this.grades = IntStream.empty();
+        this.grades = new ArrayList<Integer>();
     }
 
     public String getName() {
@@ -20,11 +20,15 @@ public class Student {
     }
 
     public void addGrade(int grade) {
-        this.grades = IntStream.concat(grades, IntStream.of(grade));
+        this.grades.add(grade);
     }
 
     public double getGradeAverage() {
-        return this.grades.average().getAsDouble();
+        return grades.stream().mapToInt(value -> value).average().getAsDouble();
+    }
+
+    public void printGrades() {
+        System.out.println(Arrays.toString(grades.toArray()));
     }
 }
 
