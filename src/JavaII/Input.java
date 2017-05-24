@@ -41,7 +41,15 @@ public class Input {
     }
 
     public double getDouble() {
-        return this.scanner.nextDouble();
+        String userInput = getStringLn();
+        double output = 0;
+        try {
+            output = Double.valueOf(userInput);
+
+        } catch (Exception e) {
+            System.out.println("not valid input");
+        }
+        return output;
     }
 
     // static coupling
@@ -82,5 +90,8 @@ class TestingInput {
         Input input = new Input();
         System.out.println("Enter integer:");
         System.out.println(input.getInt());
+
+        System.out.println("Enter double:");
+        System.out.println(input.getDouble());
     }
 }
