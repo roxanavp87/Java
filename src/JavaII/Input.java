@@ -29,7 +29,15 @@ public class Input {
     }
 
     public int getInt() {
-        return this.scanner.nextInt();
+        String userInput = getStringLn();
+        int output = 0;
+        try {
+            output = Integer.valueOf(userInput);
+
+        } catch (Exception e) {
+            System.out.println("not valid input");
+        }
+        return output;
     }
 
     public double getDouble() {
@@ -65,5 +73,14 @@ public class Input {
         } while (userInput < min || userInput > max);
 
         return userInput;
+    }
+}
+
+
+class TestingInput {
+    public static void main(String[] args) {
+        Input input = new Input();
+        System.out.println("Enter integer:");
+        System.out.println(input.getInt());
     }
 }
