@@ -33,13 +33,18 @@ public class Input {
             return Integer.valueOf(getStringLn());
 
         } catch (NumberFormatException e) {
-            System.out.println("Not a valid input, enter an integer");
+            System.out.println("Not a valid input, enter an integer: ");
             return getInt();
         }
     }
 
     public int binaryToDecimal() {
-        return Integer.valueOf(getStringLn(), 2);
+        try {
+            return Integer.valueOf(getStringLn(), 2);
+        } catch (NumberFormatException e) {
+            System.out.println("Enter a binary: ");
+            return binaryToDecimal();
+        }
     }
 
     public double getDouble() {
@@ -47,7 +52,7 @@ public class Input {
             return Double.valueOf(getStringLn());
 
         } catch (NumberFormatException e) {
-            System.out.println("Not a valid input, enter a double");
+            System.out.println("Not a valid input, enter a double: ");
             return getDouble();
         }
     }
@@ -93,6 +98,8 @@ class TestingInput {
 //
 //        System.out.println("Enter double:");
 //        System.out.println(input.getDouble());
+
+//        input.getInt(1, 10);
 
         System.out.println("Enter a binary number:");
         System.out.println(input.binaryToDecimal());
