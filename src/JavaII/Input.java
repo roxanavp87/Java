@@ -38,12 +38,21 @@ public class Input {
         }
     }
 
-    public int binaryToDecimal() {
+    public int binToDec() {
         try {
             return Integer.valueOf(getStringLn(), 2);
         } catch (NumberFormatException e) {
             System.out.println("Enter a binary: ");
-            return binaryToDecimal();
+            return binToDec();
+        }
+    }
+
+    public int hexToDec() {
+        try {
+            return Integer.valueOf(getStringLn(), 16);
+        } catch (NumberFormatException e) {
+            System.out.println("Enter an hexadecimal number: ");
+            return hexToDec();
         }
     }
 
@@ -101,7 +110,10 @@ class TestingInput {
 
 //        input.getInt(1, 10);
 
-        System.out.println("Enter a binary number:");
-        System.out.println(input.binaryToDecimal());
+//        System.out.println("Enter a binary number:");
+//        System.out.println(input.binToDec());
+
+        System.out.println("Enter an hexadecimal number:");
+        System.out.println(input.hexToDec());
     }
 }
