@@ -29,27 +29,27 @@ public class Input {
     }
 
     public int getInt() {
-        String userInput = getStringLn();
-        int output = 0;
         try {
-            output = Integer.valueOf(userInput);
+            return Integer.valueOf(getStringLn());
 
-        } catch (Exception e) {
-            System.out.println("not valid input");
+        } catch (NumberFormatException e) {
+            System.out.println("Not a valid input, enter an integer");
+            return getInt();
         }
-        return output;
+    }
+
+    public int binaryToDecimal() {
+        return Integer.valueOf(getStringLn(), 2);
     }
 
     public double getDouble() {
-        String userInput = getStringLn();
-        double output = 0;
         try {
-            output = Double.valueOf(userInput);
+            return Double.valueOf(getStringLn());
 
-        } catch (Exception e) {
-            System.out.println("not valid input");
+        } catch (NumberFormatException e) {
+            System.out.println("Not a valid input, enter a double");
+            return getDouble();
         }
-        return output;
     }
 
     // static coupling
@@ -88,10 +88,13 @@ public class Input {
 class TestingInput {
     public static void main(String[] args) {
         Input input = new Input();
-        System.out.println("Enter integer:");
-        System.out.println(input.getInt());
+//        System.out.println("Enter integer:");
+//        System.out.println(input.getInt());
+//
+//        System.out.println("Enter double:");
+//        System.out.println(input.getDouble());
 
-        System.out.println("Enter double:");
-        System.out.println(input.getDouble());
+        System.out.println("Enter a binary number:");
+        System.out.println(input.binaryToDecimal());
     }
 }
