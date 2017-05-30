@@ -62,15 +62,35 @@ public class ContactsManager {
     }
 
     public void addContact() {
-        String name, phone;
-        out.println("Enter name");
-        name = input.getStringLn();
+        String name, phone, userInput = "Yes";
+        int index;
+        boolean overwrite = false;
+        do {
+            out.println("Enter name");
+            name = input.getStringLn();
+            userInput = "Yes";
+            index = searchContactByName(name);
+            if(index != -1) {
+                out.println("There's already a contact named " + name + ". Do you want to overwrite it? (Yes/No)");
+                userInput = input.getStringLn();
+                if(userInput.equalsIgnoreCase("Yes")) {
+                    overwrite =true;
+                }
+
+            }
+        } while (userInput.equalsIgnoreCase("No"));
         out.println("Enter phone number");
         do {
             phone = input.getStringLn().trim();
         } while (!ifValidPhone(phone));
         phone = formatNumber(phone);
-        contacts.add(name + " | " + phone);
+        if(overwrite) {
+            //overwrite contact
+            contacts.set(index,name + " | " + phone);
+        } else {
+            contacts.add(name + " | " + phone);
+
+        }
     }
 
     private boolean ifValidPhone(String phone) {
