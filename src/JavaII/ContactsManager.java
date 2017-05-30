@@ -84,11 +84,12 @@ public class ContactsManager {
             phone = input.getStringLn().trim();
         } while (!ifValidPhone(phone));
         phone = formatNumber(phone);
+
         if(overwrite) {
             //overwrite contact
-            contacts.set(index,name + " | " + phone);
+            contacts.add(index, String.format("%-10s|%s", name, phone));
         } else {
-            contacts.add(name + " | " + phone);
+            contacts.add(String.format("%-10s|%s", name, phone));
 
         }
     }
