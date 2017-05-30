@@ -74,11 +74,11 @@ public class ContactsManager {
     }
 
     private boolean ifValidPhone(String phone) {
-        if(phone.length() != 10) {
+        if(phone.length() == 10 || phone.length() == 7) {
+            return true;
+        } else {
             out.println("Enter a valid Phone Number");
             return false;
-        } else {
-            return true;
         }
     }
 
@@ -139,7 +139,10 @@ public class ContactsManager {
     }
 
     public String formatNumber(String phone) {
-        return "(" + phone.substring(0,3) + ") " + phone.substring(3,6) + "-" + phone.substring(6,phone.length());
+        if(phone.length() == 10) {
+            return "(" + phone.substring(0, 3) + ") " + phone.substring(3, 6) + "-" + phone.substring(6, phone.length());
+        }
+        return phone.substring(0, 3) + "-" + phone.substring(3, phone.length());
     }
 }
 
