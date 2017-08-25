@@ -34,9 +34,9 @@ public class CodeupChallenges {
     /* Maximum Subsequence Sum:
        Write a function that, given an array of both positive and negative integers, will find the maximum sum of contiguous numbers within that array.
     */
-    public static int LargestSumContiguousSubarray(int[] arr) {
-        int[] arrSumContiguousNum = Arrays.copyOf(arr, arr.length);
-        int maxSum = 0;
+    public static int LargestSumContiguousSubarray(Integer[] arr) {
+        Integer[] arrSumContiguousNum = Arrays.copyOf(arr, arr.length);
+        int maxSum = Collections.min(Arrays.asList(arrSumContiguousNum));;
         int n=1;
 
         while (n < arr.length) {
@@ -44,9 +44,7 @@ public class CodeupChallenges {
                 arrSumContiguousNum[i] += arr[i+n];
             }
             arrSumContiguousNum[arr.length-n] = maxSum;
-            int[] copyOfArrSum = Arrays.copyOf(arrSumContiguousNum, arrSumContiguousNum.length);
-            Arrays.sort(copyOfArrSum);
-            maxSum = copyOfArrSum[copyOfArrSum.length-1];
+            maxSum = Collections.max(Arrays.asList(arrSumContiguousNum));
             n++;
         }
 
@@ -56,8 +54,8 @@ public class CodeupChallenges {
     public static void main(String[] args) {
 //        generateNarcissisticNum();
 
-        int[] arr1 = {-2, -3, 4, -1, -2, 1, 5, -3}; // Expected output: 7
-        int[] arr2 = {-7, 1, -3, 4, -1, 2, 1, -5, 4}; // Expected output: 6
-        System.out.println("Max sum is " + LargestSumContiguousSubarray(arr2));
+        Integer[] arr1 = {-2, -3, 4, -1, -2, 1, 5, -3}; // Expected output: 7
+        Integer[] arr2 = {-7, 1, -3, 4, -1, 2, 1, -5, 4}; // Expected output: 6
+        System.out.println("Max sum is " + LargestSumContiguousSubarray(arr1));
     }
 }
